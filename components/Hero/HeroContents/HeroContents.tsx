@@ -1,10 +1,14 @@
 "use client";
-import React from "react";
-import HeroIcons from "../HeroIcons/HeroIcons";
+import { Button } from "@/components/ui/button";
+import { useUserDetails } from "@/hooks/useUserDetails";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ChevronsRight } from "lucide-react";
+import Link from "next/link";
+import HeroIcons from "../HeroIcons/HeroIcons";
 
 const HeroContents = () => {
+  const userExits = useUserDetails();
   useGSAP(() => {
     gsap.fromTo(
       "#hero-title",
@@ -22,6 +26,21 @@ const HeroContents = () => {
       </h1>
       <p className="text-app-subText">Your healthcare management system</p>
       <HeroIcons />
+      {userExits?.isUserExits ? (
+        <Link href="/user-information">
+          <Button className="rounded-full h-12 px-5 bg-app-primary hover:bg-app-lightPrimary mt-10">
+            Let us know more about yourself
+          </Button>
+        </Link>
+      ) : (
+        <Link
+          href="/login"
+          className="text-app-primary text-sm font-medium mt-5 flex items-center gap-1"
+        >
+          Let’s get to know you — log in to continue{" "}
+          <ChevronsRight className="w-5 h-5 animate-pulse" />
+        </Link>
+      )}
     </div>
   );
 };

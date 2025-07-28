@@ -11,6 +11,7 @@ interface CardsData {
   workingHrs?: {
     data: string[];
   };
+  href: string;
 }
 
 export const cardsData: CardsData[] = [
@@ -21,6 +22,7 @@ export const cardsData: CardsData[] = [
     description:
       "Call us immediately in case of any medical emergency. Our dedicated team is ready to assist 24/7.",
     button: "See More",
+    href: "/",
   },
   {
     id: 2,
@@ -31,6 +33,7 @@ export const cardsData: CardsData[] = [
     description:
       "Schedule your visit easily through our online booking system. We value your time and convenience.",
     button: "Book Now",
+    href: "/book-an-appointment",
   },
   {
     id: 3,
@@ -43,5 +46,6 @@ export const cardsData: CardsData[] = [
       ],
     },
     button: "Contact Us",
+    href: "/",
   },
 ];

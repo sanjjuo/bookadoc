@@ -1,11 +1,12 @@
 import LogoIcon from "@/components/svg/LogoIcon";
+import Link from "next/link";
 
 const Logo = () => {
   return (
-    <div className="flex items-center gap-1">
+    <Link href="/home" className="flex items-center gap-1">
       <LogoIcon className="w-8 h-8 fill-app-lightPrimary" />
       <span className="text-xl font-extrabold">bookadoc</span>
-    </div>
+    </Link>
   );
 };
 

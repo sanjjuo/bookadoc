@@ -12,6 +12,7 @@ import { cardsData } from "./data";
 import { Button } from "../ui/button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Link from "next/link";
 
 const Cards = () => {
   useGSAP(() => {
@@ -64,9 +65,11 @@ const Cards = () => {
           </CardContent>
 
           <CardFooter className="p-0">
-            <Button className="bg-white text-xs tracking-wider font-bold uppercase text-app-bgdarkMode rounded-full h-12 w-36 hover:bg-transparent hover:border-2 hover:border-app-primary">
-              {item.button}
-            </Button>
+            <Link href={item.href}>
+              <Button className="bg-white text-xs tracking-wider font-bold uppercase text-app-bgdarkMode rounded-full h-12 w-36 hover:bg-transparent hover:border-2 hover:border-app-primary">
+                {item.button}
+              </Button>
+            </Link>
           </CardFooter>
         </Card>
       ))}
