@@ -27,3 +27,11 @@ interface DoctorDropdownProps {
   onChange: (value: string) => void;
   data: DoctorDataType[];
 }
+
+interface AppointmentFormInput {
+  doctor: string;
+  reason: string;
+  appointmentDate: Date;
+  status?: "pending" | "scheduled" | "cancelled";
+  additionalComments?: string;
+}

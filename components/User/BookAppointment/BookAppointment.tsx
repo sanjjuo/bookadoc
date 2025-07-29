@@ -3,7 +3,7 @@ import { useUserDetails } from "@/hooks/useUserDetails";
 import { db } from "@/lib/firebase";
 import { appointmentSchema } from "@/schema/appointementSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -19,7 +19,7 @@ const BookAppointment = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const userDetails = useUserDetails();
   const router = useRouter();
-  const form = useForm({
+  const form = useForm<AppointmentFormInput>({
     resolver: zodResolver(appointmentSchema),
     mode: "onChange",
     defaultValues: {
@@ -27,17 +27,20 @@ const BookAppointment = () => {
       reason: "",
       additionalComments: "",
       appointmentDate: undefined,
+      status: "pending",
     },
   });
 
   //   form submission
-  const handleAppointmentFormSubmit = async (data: any) => {
+  const handleAppointmentFormSubmit = async (data: AppointmentFormInput) => {
     setIsLoading(true);
     try {
       const formData = {
         ...data,
+        appointmentDate: Timestamp.fromDate(new Date(data.appointmentDate)),
         userId: userDetails?.userId,
-        fullName: userDetails?.loggedInUsername,
+        fullName: userDetails?.loggedInUsername ?? "",
+        status: "pending",
         createdAt: new Date().toISOString(),
       };
       console.log(formData);
@@ -58,8 +61,12 @@ const BookAppointment = () => {
       const query = new URLSearchParams({
         doctorName: selectedDoctor?.name ?? "",
         doctorImage: selectedDoctor?.imageUrl ?? "",
-        appointmentDate: data.appointmentDate,
+        appointmentDate:
+          data.appointmentDate instanceof Date
+            ? data.appointmentDate.toISOString()
+            : String(data.appointmentDate) || "",
       }).toString();
+
       router.push(`/appointment-successful?${query}`);
     } catch (error) {
       toast.error("Something wrong");

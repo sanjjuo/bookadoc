@@ -8,5 +8,6 @@ export const appointmentSchema = z.object({
     .string({ message: "Reason for appointment is required" })
     .min(1, { message: "Reason atleast contain 1 character" }),
   additionalComments: z.string().optional(),
-  appointmentDate: z.date({message:"Appointemnt date is required"})
+  appointmentDate: z.date({ message: "Appointemnt date is required" }),
+  status: z.enum(["pending", "scheduled", "cancelled"]).default("pending"),
 });

@@ -1,11 +1,15 @@
-import React from 'react'
+import AdminTable from "@/components/Admin/AdminTable/AdminTable";
+import HeaderTitle from "@/components/Admin/HeaderTitle/HeaderTitle";
+import OverviewCards from "@/components/Admin/OverviewCards/OverviewCards";
 
 const AdminPage = () => {
   return (
-    <div>
-      
+    <div className="appPadding space-y-10">
+      <HeaderTitle />
+      <OverviewCards />
+      <AdminTable />
     </div>
-  )
-}
+  );
+};
 
-export default AdminPage
+export default AdminPage;
