@@ -12,7 +12,7 @@ const CustomButton = ({
     <Button
       type="submit"
       disabled={isDisabled}
-      className="bg-app-primary w-full text-xs tracking-wide hover:bg-app-lightPrimary"
+      className="bg-app-primary w-full text-xs tracking-wide hover:bg-app-lightPrimary h-12"
     >
       {isLoading ? "Submitting..." : "Submit and continue"}
     </Button>

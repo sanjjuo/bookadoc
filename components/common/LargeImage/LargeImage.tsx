@@ -3,7 +3,7 @@ import React from "react";
 
 const LargeImage = ({ image }: { image: string }) => {
   return (
-    <div className="relative w-full h-[calc(100vh-5rem)]">
+    <div className="hidden lg:block relative w-full h-[calc(100vh-5rem)]">
       <Image
         src={image}
         fill

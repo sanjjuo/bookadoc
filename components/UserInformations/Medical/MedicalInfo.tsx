@@ -6,7 +6,7 @@ const MedicalInfo = ({ form }: { form: UseFormReturn<any> }) => {
   return (
     <div className="space-y-5">
       <UserInfoTitle title="Medical information" />
-      <div className="flex items-center gap-2">
+      <div className="flex flex-col lg:flex-row items-center gap-2">
         <div className="w-full">
           <CustomTextarea
             form={form}
@@ -24,7 +24,7 @@ const MedicalInfo = ({ form }: { form: UseFormReturn<any> }) => {
           />
         </div>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex flex-col lg:flex-row items-center gap-2">
         <div className="w-full">
           <CustomTextarea
             form={form}

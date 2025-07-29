@@ -42,7 +42,7 @@ const HeroLargeImage = () => {
           src="/images/doctor-room.jpg"
           fill
           quality={100}
-          className="object-cover rounded-bl-[80%] rounded-br-[25%] rounded-tl-[30%]"
+          className="hidden md:block object-cover rounded-bl-[80%] rounded-br-[25%] rounded-tl-[30%]"
           alt="large-img"
         />
         <Image
@@ -51,7 +51,7 @@ const HeroLargeImage = () => {
           width={700}
           height={400}
           quality={100}
-          className="object-cover absolute inset-0 z-30"
+          className="hidden md:block object-cover absolute inset-0 z-30"
           alt="doctor-img"
         />
       </div>

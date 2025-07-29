@@ -1,22 +1,24 @@
 "use client";
 import { useUserDetails } from "@/hooks/useUserDetails";
+import { db } from "@/lib/firebase";
 import { appointmentSchema } from "@/schema/appointementSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { addDoc, collection } from "firebase/firestore";
+import { useRouter } from "next/navigation";
+import React from "react";
 import { Controller, useForm } from "react-hook-form";
+import { toast } from "sonner";
 import CustomButton from "../common/CustomButton/CustomButton";
 import CustomTextarea from "../common/CustomTextarea/CustomTextarea";
 import { DatePicker } from "../common/DatePicker/DatePicker";
 import { Form, FormControl, FormItem, FormLabel } from "../ui/form";
 import { doctorData } from "./data";
 import DoctorDropdown from "./DoctorDropdown/DoctorDropdown";
-import { toast } from "sonner";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "@/lib/firebase";
-import React from "react";
 
 const BookAppointment = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const userDetails = useUserDetails();
+  const router = useRouter();
   const form = useForm({
     resolver: zodResolver(appointmentSchema),
     mode: "onChange",
@@ -36,8 +38,10 @@ const BookAppointment = () => {
         ...data,
         userId: userDetails?.userId,
         fullName: userDetails?.loggedInUsername,
+        createdAt: new Date().toISOString(),
       };
       console.log(formData);
+      console.log(data);
       if (!userDetails?.userId) {
         toast.error("User not found");
         return;
@@ -47,15 +51,22 @@ const BookAppointment = () => {
         formData
       );
       console.log("Form is submitted", data);
-      toast.success("Form is submitted");
       form.reset();
       setIsLoading(false);
+
+      const selectedDoctor = doctorData.find((doc) => doc.name === data.doctor);
+      const query = new URLSearchParams({
+        doctorName: selectedDoctor?.name ?? "",
+        doctorImage: selectedDoctor?.imageUrl ?? "",
+        appointmentDate: data.appointmentDate,
+      }).toString();
+      router.push(`/appointment-successful?${query}`);
     } catch (error) {
       toast.error("Something wrong");
     }
   };
   return (
-    <div className="space-y-10 appWidth appPadding">
+    <div className="space-y-10">
       <div>
         <h1 className="text-4xl font-bold text-app-mainText">
           Hello{" "}
@@ -71,7 +82,7 @@ const BookAppointment = () => {
           className="space-y-5"
           onSubmit={form.handleSubmit(handleAppointmentFormSubmit)}
         >
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col lg:flex-row items-center gap-2">
             <div className="w-full">
               <Controller
                 control={form.control}
@@ -105,7 +116,7 @@ const BookAppointment = () => {
               />
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col lg:flex-row items-center gap-2">
             <div className="w-full">
               <CustomTextarea
                 form={form}

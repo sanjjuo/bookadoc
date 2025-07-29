@@ -1,19 +1,18 @@
 "use client";
-import React from "react";
-import PersonalInfo from "./Personal/PersonalInfo";
-import { Form } from "../ui/form";
-import { useForm } from "react-hook-form";
-import { Button } from "../ui/button";
-import MedicalInfo from "./Medical/MedicalInfo";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { userInfoSchema } from "@/schema/userInfoSchema";
-import { toast } from "sonner";
-import IdentificationInfo from "./Identification/IdentificationInfo";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "@/lib/firebase";
 import { useUserDetails } from "@/hooks/useUserDetails";
+import { db } from "@/lib/firebase";
+import { userInfoSchema } from "@/schema/userInfoSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { addDoc, collection } from "firebase/firestore";
 import { useRouter } from "next/navigation";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import CustomButton from "../common/CustomButton/CustomButton";
+import { Form } from "../ui/form";
+import IdentificationInfo from "./Identification/IdentificationInfo";
+import MedicalInfo from "./Medical/MedicalInfo";
+import PersonalInfo from "./Personal/PersonalInfo";
 
 const UserInformationsForm = () => {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -46,6 +45,7 @@ const UserInformationsForm = () => {
         fullName: userDetails?.loggedInUsername,
         email: userDetails?.email,
         dateOfBirth: data.dateOfBirth.toISOString().split("T")[0],
+        createdAt: new Date().toISOString(),
       };
       console.log(formData);
       if (!userDetails?.userId) {
@@ -67,7 +67,7 @@ const UserInformationsForm = () => {
   };
 
   return (
-    <div className="space-y-10 appPadding">
+    <div className="space-y-10">
       <div>
         <h1 className="text-4xl font-bold text-app-mainText">
           Welcome{" "}

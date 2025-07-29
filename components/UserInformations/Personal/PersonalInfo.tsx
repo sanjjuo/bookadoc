@@ -10,7 +10,7 @@ const PersonalInfo = ({ form }: { form: UseFormReturn<any> }) => {
   return (
     <div className="space-y-5">
       <UserInfoTitle title="Personal information" />
-      <div className="flex items-center gap-2">
+      <div className="flex flex-col lg:flex-row items-center gap-2">
         <div className="w-full">
           <CustomInput
             form={form}
@@ -24,7 +24,7 @@ const PersonalInfo = ({ form }: { form: UseFormReturn<any> }) => {
           <RadioBtn form={form} />
         </div>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex flex-col lg:flex-row items-center gap-2">
         <div className="w-full">
           <DatePicker
             form={form}

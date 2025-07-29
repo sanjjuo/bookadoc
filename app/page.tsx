@@ -55,9 +55,9 @@ const WelcomeAppLogoPage = () => {
   return (
     <div className="bg-app-primary h-screen flex flex-col justify-center items-center text-white relative overflow-hidden">
       <div className="flex justify-center items-center">
-        <ul className="flex items-center justify-center gap-2 text-[220px] font-bold relative">
+        <ul className="flex items-center justify-center gap-1 text-5xl md:text-8xl lg:text-[220px] font-bold relative">
           <li id="logo-icon" className="relative">
-            <LogoIcon className="w-44 h-44 fill-app-lightPrimary" />
+            <LogoIcon className="w-14 h-14 md:w-24 md:h-24 lg:w-44 lg:h-44 fill-app-lightPrimary" />
           </li>
           <li id="b">b</li>
           <li id="o1">o</li>
@@ -69,7 +69,7 @@ const WelcomeAppLogoPage = () => {
           <li id="c">c</li>
         </ul>
       </div>
-      <p className="text-lg mt-10">
+      <p className="text-sm md:text-lg mt-2 lg:mt-10">
         &copy; {new Date().getFullYear()} bookadoc & CO.LLC
       </p>
     </div>

@@ -5,10 +5,10 @@ import HeroContents from "./HeroContents/HeroContents";
 const Hero = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5">
-      <div className="col-span-2">
+      <div className="col-span-1 lg:col-span-2">
         <HeroContents />
       </div>
-      <div className="col-span-3">
+      <div className="col-span-1 lg:col-span-3">
         <HeroLargeImage />
       </div>
     </div>

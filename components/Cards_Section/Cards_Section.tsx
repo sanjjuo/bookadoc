@@ -5,7 +5,7 @@ const Cards_Section = () => {
   return (
     <div
       id="cards-section"
-      className="grid grid-cols-1 lg:grid-cols-3 gap-5 appWidth appPadding"
+      className="grid grid-cols-1 lg:grid-cols-3 gap-5 appWidth"
     >
       <Cards />
     </div>
