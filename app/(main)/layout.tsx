@@ -1,5 +1,5 @@
 "use client";
-import Navbar from "@/components/Navbar/Navbar";
+import Navbar from "@/components/User/Navbar/Navbar";
 import { usePathname } from "next/navigation";
 import React from "react";
 

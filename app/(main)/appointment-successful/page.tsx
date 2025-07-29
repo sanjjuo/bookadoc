@@ -1,7 +1,7 @@
 "use client";
-import Logo from "@/components/common/Logo/Logo";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import Logo from "@/components/User/common/Logo/Logo";
 import { Calendar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

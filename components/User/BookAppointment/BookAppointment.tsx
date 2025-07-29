@@ -11,9 +11,9 @@ import { toast } from "sonner";
 import CustomButton from "../common/CustomButton/CustomButton";
 import CustomTextarea from "../common/CustomTextarea/CustomTextarea";
 import { DatePicker } from "../common/DatePicker/DatePicker";
-import { Form, FormControl, FormItem, FormLabel } from "../ui/form";
 import { doctorData } from "./data";
 import DoctorDropdown from "./DoctorDropdown/DoctorDropdown";
+import { Form, FormControl, FormItem, FormLabel } from "@/components/ui/form";
 
 const BookAppointment = () => {
   const [isLoading, setIsLoading] = React.useState(false);

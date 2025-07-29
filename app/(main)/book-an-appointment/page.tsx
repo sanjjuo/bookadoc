@@ -1,4 +1,5 @@
-import BookAppointment from "@/components/BookAppointment/BookAppointment";
+import BookAppointment from "@/components/User/BookAppointment/BookAppointment";
+
 
 const BookAppointmentPage = () => {
   return (

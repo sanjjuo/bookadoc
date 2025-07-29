@@ -9,10 +9,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import CustomButton from "../common/CustomButton/CustomButton";
-import { Form } from "../ui/form";
 import IdentificationInfo from "./Identification/IdentificationInfo";
 import MedicalInfo from "./Medical/MedicalInfo";
 import PersonalInfo from "./Personal/PersonalInfo";
+import { Form } from "@/components/ui/form";
 
 const UserInformationsForm = () => {
   const [isLoading, setIsLoading] = React.useState(false);

@@ -1,9 +1,9 @@
-import IdentificationDropdown from "@/components/UserInformations/Identification/IdentificationDropdown/IdentificationDropdown";
 import { Controller, UseFormReturn } from "react-hook-form";
 import CustomInput from "../../common/CustomInput/CustomInput";
 import UserInfoTitle from "../../common/UserInfoTitle/UserInfoTitle";
-import { FormControl, FormItem, FormLabel } from "../../ui/form";
 import { identificationData } from "./data";
+import { FormControl, FormItem, FormLabel } from "@/components/ui/form";
+import IdentificationDropdown from "./IdentificationDropdown/IdentificationDropdown";
 
 const IdentificationInfo = ({ form }: { form: UseFormReturn<any> }) => {
   return (

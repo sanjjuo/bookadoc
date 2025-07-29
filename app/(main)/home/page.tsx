@@ -1,6 +1,6 @@
 "use client";
-import Cards from "@/components/Cards_Section/Cards_Section";
-import Hero from "@/components/Hero/Hero";
+import Cards_Section from "@/components/User/Cards_Section/Cards_Section";
+import Hero from "@/components/User/Hero/Hero";
 import { useUserDetails } from "@/hooks/useUserDetails";
 import { db } from "@/lib/firebase";
 import { doc, setDoc } from "firebase/firestore";
@@ -25,7 +25,7 @@ const HomePage = () => {
   return (
     <div>
       <Hero />
-      <Cards />
+      <Cards_Section />
     </div>
   );
 };

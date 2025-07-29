@@ -9,10 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cardsData } from "./data";
-import { Button } from "../ui/button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const Cards = () => {
   useGSAP(() => {

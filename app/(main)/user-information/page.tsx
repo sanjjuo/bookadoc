@@ -1,4 +1,5 @@
-import UserInformationsForm from "@/components/UserInformations/UserInformationsForm";
+import UserInformationsForm from "@/components/User/UserInformations/UserInformationsForm";
+
 
 const UserInformationPage = () => {
   return (
