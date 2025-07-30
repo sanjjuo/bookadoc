@@ -6,6 +6,7 @@ import { useAdminFetchPatients } from "@/services/useAdminFetchPatients";
 const OverviewCards = () => {
   const { data } = useAdminFetchPatients();
 
+  const appointmentCount = data?.length ?? 0;
   const scheduledCount =
     data?.filter((item) => item.status === "scheduled").length ?? 0;
   const pendingCount =
@@ -14,7 +15,12 @@ const OverviewCards = () => {
     data?.filter((item) => item.status === "cancelled").length ?? 0;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
+      <AdminCard
+        icon="appointment"
+        description="Total number of appointments"
+        data={appointmentCount}
+      />
       <AdminCard
         icon="scheduled"
         description="Total number of scheduled appointments"

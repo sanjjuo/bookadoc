@@ -10,26 +10,29 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Form, FormControl, FormItem, FormLabel } from "@/components/ui/form";
-import React from "react";
-import { Controller, useForm } from "react-hook-form";
+import React, { SetStateAction } from "react";
+import { Controller } from "react-hook-form";
+import { usehandleFunctionsModal } from "./Functions/handleFunctions";
 
-const ScheduleModal = () => {
-  const [isLoading, setIsLoading] = React.useState(false);
-  const form = useForm();
-  //   form submission
-  const handleScheduleAppointmentByAdmin = (data: any) => {
-    console.log("form is submitted", data);
-  };
+const ScheduleModal = ({
+  open,
+  setOpen,
+  selectAppointmentId,
+  selectUserId,
+}: {
+  open: boolean;
+  setOpen: React.Dispatch<SetStateAction<boolean>>;
+  selectAppointmentId: string;
+  selectUserId: string;
+}) => {
+  // handle Functions
+  const { handleScheduleAppointmentByAdmin, form, isLoading } =
+    usehandleFunctionsModal(selectUserId, selectAppointmentId, setOpen);
+
   return (
-    <Dialog modal={false}>
-      <DialogTrigger asChild>
-        <Button className="bg-green-300 hover:bg-green-300/40 text-green-900 rounded-full text-xs font-medium">
-          Schedule
-        </Button>
-      </DialogTrigger>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">
@@ -81,9 +84,10 @@ const ScheduleModal = () => {
             />
             <Button
               disabled={isLoading}
+              type="submit"
               className="w-full bg-app-primary h-12 text-sm hover:bg-app-lightPrimary"
             >
-              Schedule Appointment
+              {isLoading ? "Scheduling..." : "Schedule Appointment"}
             </Button>
           </form>
         </Form>

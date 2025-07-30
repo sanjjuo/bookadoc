@@ -1,22 +1,30 @@
 export const tableHead = [
   {
     id: 1,
-    label: "patient",
+    label: "Id",
   },
   {
     id: 2,
-    label: "date",
+    label: "patient",
   },
   {
     id: 3,
-    label: "status",
+    label: "email",
   },
   {
     id: 4,
-    label: "doctor",
+    label: "date",
   },
   {
     id: 5,
+    label: "status",
+  },
+  {
+    id: 6,
+    label: "doctor",
+  },
+  {
+    id: 7,
     label: "actions",
   },
 ];

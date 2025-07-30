@@ -24,7 +24,7 @@
     @apply px-5 lg:px-0 py-10 md:py-20;
   }
   .adminAppWidth {
-    @apply max-w-[1400px] mx-auto;
+    @apply max-w-[1300px] mx-auto;
   }
 }
 

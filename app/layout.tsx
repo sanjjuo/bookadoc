@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Lora, Poppins } from "next/font/google";
 import "./globals.css";
 import Provider from "./provider";
+
 const fontPoppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],

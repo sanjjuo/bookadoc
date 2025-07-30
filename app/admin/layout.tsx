@@ -3,9 +3,11 @@ import React from "react";
 
 const Adminlayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="p-3 adminAppWidth">
-      <AdminNavbar />
-      <div>{children}</div>
+    <div>
+      <div className="sticky top-0 w-full z-50 p-5 bg-gray-100 shadow-md">
+        <AdminNavbar />
+      </div>
+      <div className="adminAppWidth">{children}</div>
     </div>
   );
 };

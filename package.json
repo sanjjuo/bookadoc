@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.26.0",
+    "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^5.1.1",
     "@radix-ui/react-dialog": "^1.1.14",
