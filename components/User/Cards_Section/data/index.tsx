@@ -46,6 +46,6 @@ export const cardsData: CardsData[] = [
       ],
     },
     button: "Contact Us",
-    href: "/",
+    href: "/contact",
   },
 ];
