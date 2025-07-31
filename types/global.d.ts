@@ -59,3 +59,8 @@ interface Appointment {
   appointmentId?: string;
   createdAt?: string;
 }
+
+interface AdminLoginType {
+  adminEmail: string;
+  adminPassword: string;
+}

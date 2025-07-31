@@ -4,7 +4,7 @@ import React from "react";
 const Adminlayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-      <div className="sticky top-0 w-full z-50 p-5 bg-gray-100 shadow-md">
+      <div className="sticky top-0 w-full z-50 p-3 bg-gray-100">
         <AdminNavbar />
       </div>
       <div className="adminAppWidth">{children}</div>
