@@ -36,7 +36,7 @@ export default function RootLayout({
           className={cn(
             fontLora.variable,
             fontPoppins.className,
-            "antialiased"
+            "antialiased",
           )}
         >
           <ThemeProvider

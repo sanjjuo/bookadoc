@@ -47,23 +47,12 @@ interface UserInformationFormType {
   idNumber: string;
 }
 
-interface AppointmentFormInput {
-  doctor: string;
-  reason: string;
-  appointmentDate: Date;
+interface Appointment {
+  doctor?: string;
+  reason?: string;
+  appointmentDate?: Date | { seconds: number; nanoseconds: number };
   additionalComments?: string;
   status?: "pending" | "scheduled" | "cancelled";
-  fullName?: string;
-  email?: string;
-  userId?: string;
-  appointmentId?: string;
-  createdAt?: string;
-}
-
-interface AdminAppointmentType {
-  adminDoctor: string;
-  adminReasonAppointment: string;
-  adminExpectedAppointmentDate: Date | string;
   fullName?: string;
   email?: string;
   userId?: string;

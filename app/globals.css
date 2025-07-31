@@ -1,5 +1,6 @@
 @import "./styles/variables.css";
 @import "./styles/inputs.css";
+@import "./styles/button.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -32,4 +33,13 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* prevent layout shift in shadcn dialog */
+html {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+body[data-scroll-locked] {
+  min-width: 100%;
 }

@@ -19,14 +19,7 @@ import { useHandleFunctions } from "./Functions/handleFunctions";
 
 const AdminTable = () => {
   const { data } = useAdminFetchPatients();
-  const {
-    handleCancel,
-    open,
-    setOpen,
-    selectAppointmentId,
-    selectUserId,
-    handleOpen,
-  } = useHandleFunctions();
+  const { open, setOpen, selectedPatient, handleOpen } = useHandleFunctions();
 
   return (
     <div className="bg-gray-50 p-5 rounded-2xl overflow-x-auto">
@@ -70,22 +63,12 @@ const AdminTable = () => {
                 {item.doctor}
               </TableCell>
               <TableCell className="px-4 py-2 w-[15%]">
-                <div className="flex items-center justify-end gap-2">
-                  <Button
-                    onClick={() => handleOpen(item.appointmentId, item.userId)}
-                    className="bg-green-300 hover:bg-green-300/40 text-green-900 rounded-full text-xs font-medium"
-                  >
-                    Schedule
-                  </Button>
-                  <Button
-                    onClick={() =>
-                      handleCancel(item.appointmentId, item.userId)
-                    }
-                    className="bg-red-300 hover:bg-red-300/40 text-red-900 rounded-full text-xs font-medium"
-                  >
-                    Cancel
-                  </Button>
-                </div>
+                <Button
+                  onClick={() => handleOpen(item)}
+                  className="app-border-btn"
+                >
+                  Manage Appointment
+                </Button>
               </TableCell>
             </TableRow>
           ))}
@@ -99,8 +82,7 @@ const AdminTable = () => {
       <ScheduleModal
         open={open}
         setOpen={setOpen}
-        selectAppointmentId={selectAppointmentId}
-        selectUserId={selectUserId}
+        selectedPatient={selectedPatient}
       />
     </div>
   );

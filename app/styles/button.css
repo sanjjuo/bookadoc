@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .app-btn {
+    @apply !bg-app-primary !w-full !text-xs !tracking-wide hover:!bg-app-lightPrimary !h-12;
+  }
+  .app-border-btn {
+    @apply !border-2 !border-app-primary !bg-transparent !text-app-primary !rounded-md hover:!bg-app-primary hover:!text-white !text-xs !font-medium;
+  }
+  .pending-btn {
+    @apply !bg-blue-500 hover:!bg-blue-500 !text-blue-900 !text-xs !font-medium;
+  }
+  .schedule-btn {
+    @apply !bg-emerald-500 hover:!bg-emerald-500 !text-emerald-950 !rounded-md !text-xs !font-medium;
+  }
+  .cancel-btn {
+    @apply !bg-red-500 hover:!bg-red-500 !text-red-950 !rounded-md !text-xs !font-medium;
+  }
+}

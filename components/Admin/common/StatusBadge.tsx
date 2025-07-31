@@ -1,31 +1,45 @@
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { CalendarCheck2, Hourglass, ShieldAlert } from "lucide-react";
-import React from "react";
 
 const StatusBadge = ({ status }: { status: string }) => {
   return (
-    <Badge
-      className={cn(
-        status === "pending"
-          ? "bg-blue-300 text-blue-900"
-          : status === "scheduled"
-          ? "bg-green-300 text-green-900"
-          : status === "cancelled" && "bg-red-300 text-red-900",
-        "rounded-md h-9 w-28 flex items-center hover:bg-black/20 cursor-default justify-center gap-1 px-1 capitalize text-xs"
-      )}
-    >
-      <span>
-        {status === "pending" ? (
-          <Hourglass className="w-3 h-3" />
-        ) : status === "scheduled" ? (
-          <CalendarCheck2 className="w-4 h-4" />
-        ) : (
-          status === "cancelled" && <ShieldAlert className="w-4 h-4" />
+    <div className="flex items-center gap-1">
+      <div className="w-[95px]">
+        <h1
+          className={cn(
+            status === "pending"
+              ? "text-blue-500"
+              : status === "scheduled"
+              ? "text-emerald-500"
+              : status === "cancelled" && "text-red-500",
+            "flex items-center gap-[3px] font-medium text-sm capitalize"
+          )}
+        >
+          <span>
+            {status === "pending" ? (
+              <Hourglass className="w-3 h-3" />
+            ) : status === "scheduled" ? (
+              <CalendarCheck2 className="w-4 h-4" />
+            ) : (
+              status === "cancelled" && (
+                <ShieldAlert className="w-[17px] h-[17px]" />
+              )
+            )}
+          </span>
+          {status}
+        </h1>
+      </div>
+      <div
+        className={cn(
+          status === "pending"
+            ? "pending-btn"
+            : status === "scheduled"
+            ? "schedule-btn animate-pulse"
+            : status === "cancelled" && "cancel-btn",
+          "rounded-full w-3 h-3"
         )}
-      </span>
-      {status}
-    </Badge>
+      ></div>
+    </div>
   );
 };
 
