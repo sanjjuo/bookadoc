@@ -31,7 +31,7 @@ const AdminProfile = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="bg-app-primary rounded-full p-1">
-        <AdminProfileIcon className="w-10 h-10 fill-white" />
+        <AdminProfileIcon className="w-8 h-8 fill-white" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-60" align="end">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>

@@ -13,7 +13,7 @@ export const useHandleAppointmentFunction = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const userDetails = useUserDetails();
   const router = useRouter();
-  const form = useForm<AppointmentFormInput>({
+  const form = useForm({
     resolver: zodResolver(appointmentSchema),
     mode: "onChange",
     defaultValues: {
@@ -26,7 +26,7 @@ export const useHandleAppointmentFunction = () => {
   });
 
   //   form submission
-  const handleAppointmentFormSubmit = async (data: AppointmentFormInput) => {
+  const handleAppointmentFormSubmit = async (data: Appointment) => {
     setIsLoading(true);
     try {
       if (!userDetails?.userId) {
@@ -44,7 +44,16 @@ export const useHandleAppointmentFunction = () => {
       const formData = {
         ...data,
         appointmentId: docRef.id,
-        appointmentDate: Timestamp.fromDate(new Date(data.appointmentDate)),
+        appointmentDate: data.appointmentDate
+          ? Timestamp.fromDate(
+              typeof data.appointmentDate === "string" ||
+                typeof data.appointmentDate === "number"
+                ? new Date(data.appointmentDate)
+                : data.appointmentDate instanceof Date
+                ? data.appointmentDate
+                : new Date()
+            )
+          : null,
         userId: userDetails?.userId,
         fullName: userDetails?.loggedInUsername ?? "",
         email: userDetails?.email ?? "",
@@ -54,8 +63,7 @@ export const useHandleAppointmentFunction = () => {
 
       // Step 3: update the created doc with all data
       await updateDoc(docRef, formData);
-
-      console.log("Form is submitted", data);
+      console.log("Form is submitted", formData);
       form.reset();
       setIsLoading(false);
 

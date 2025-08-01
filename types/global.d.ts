@@ -64,3 +64,11 @@ interface AdminLoginType {
   adminEmail: string;
   adminPassword: string;
 }
+
+interface DepartmentType {
+  id?: string;
+  departmentName: string;
+  departmentImage: string;
+  departmentDescription: string;
+  departmentDoctor: string;
+}

@@ -4,8 +4,7 @@ import AdminProfile from "./AdminProfile";
 
 const AdminNavbar = () => {
   return (
-    <div className="adminAppWidth flex items-center justify-between">
-      <Logo placement="admin" />
+    <div className="adminAppWidth flex items-center justify-end">
       <AdminProfile />
     </div>
   );

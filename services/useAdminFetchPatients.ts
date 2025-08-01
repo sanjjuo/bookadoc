@@ -1,7 +1,7 @@
 import {
   fetchPatients,
   fetchPatientsChangedStatus,
-} from "@/apis/fetchPatients";
+} from "@/apis/patients";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const useAdminFetchPatients = () => {

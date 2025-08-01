@@ -10,16 +10,17 @@ import {
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 import { useAdminFetchPatients } from "@/services/useAdminFetchPatients";
-import React from "react";
 import StatusBadge from "../common/StatusBadge";
 import ScheduleModal from "../ScheduleModal/ScheduleModal";
 import { tableHead } from "./data";
-import TablePagination from "./TablePagination";
 import { useHandleFunctions } from "./Functions/handleFunctions";
+import TablePagination from "./TablePagination";
 
-const AdminTable = () => {
+const AdminTable = ({ placement }: { placement: string }) => {
   const { data } = useAdminFetchPatients();
   const { open, setOpen, selectedPatient, handleOpen } = useHandleFunctions();
+
+  const appointmentsData = placement === "dashboard" ? data?.slice(0, 5) : data;
 
   return (
     <div className="bg-gray-50 p-5 rounded-2xl overflow-x-auto">
@@ -40,7 +41,7 @@ const AdminTable = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data?.map((item, index) => (
+          {appointmentsData?.map((item, index) => (
             <TableRow key={index} className="h-20">
               <TableCell className="text-sm text-app-mainText px-4 py-2">
                 {index + 1}
@@ -75,9 +76,11 @@ const AdminTable = () => {
         </TableBody>
       </Table>
 
-      <div className="mt-10">
-        <TablePagination />
-      </div>
+      {placement === "appointments" && (
+        <div className="mt-10">
+          <TablePagination />
+        </div>
+      )}
 
       <ScheduleModal
         open={open}
