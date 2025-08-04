@@ -15,7 +15,7 @@ const RadioBtn = ({ form }: { form: UseFormReturn<any> }) => {
         render={({ field, fieldState }) => (
           <>
             <RadioGroup
-              value={field.value}
+              value={field.value ?? ""}
               onValueChange={field.onChange}
               className="flex items-center justify-between"
             >

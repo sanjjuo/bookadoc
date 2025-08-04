@@ -11,7 +11,6 @@ export const useHandleAdminAddDepartment = () => {
     defaultValues: {
       departmentName: "",
       departmentDescription: "",
-      departmentDoctor: "",
     },
   });
   const handleAddDepartment = async (data: DepartmentType) => {

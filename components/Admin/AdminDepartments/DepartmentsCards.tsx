@@ -31,14 +31,6 @@ const DepartmentsCard = () => {
                   {item.departmentDescription}
                 </p>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-bold text-app-mainText">
-                  Doctor :
-                </span>
-                <span className="text-sm font-semibold text-app-primary">
-                  {item.departmentDoctor}
-                </span>
-              </div>
             </CardContent>
           </Card>
         ))}

@@ -42,14 +42,14 @@ const Departments = () => {
                   {dept.departmentDescription}
                 </p>
               </div>
-              <Link href="" className="flex items-center gap-2">
+              {/* <Link href="" className="flex items-center gap-2">
                 <span className="text-sm font-bold text-app-mainText">
                   Doctor :
                 </span>
                 <span className="text-sm font-semibold text-app-primary">
                   {dept.departmentDoctor}
                 </span>
-              </Link>
+              </Link> */}
             </CardContent>
           </Card>
         ))}

@@ -10,7 +10,9 @@ export const userInfoSchema = z.object({
     .min(5, { message: "Address must be at least 5 characters" }),
   dateOfBirth: z.date({ message: "DOB is required" }),
   gender: z
-    .enum(["Male", "Female"] as const, { message: "Gender is required" })
+    .enum(["Male", "Female", "Others"] as const, {
+      message: "Gender is required",
+    })
     .refine((val) => !!val, {
       message: "Gender is required",
     }),

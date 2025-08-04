@@ -1,21 +1,20 @@
-import AddDepartment from "@/components/Admin/AdminDepartments/AddDepartment";
-import DepartmentsCard from "@/components/Admin/AdminDepartments/DepartmentsCards";
+import AddDoctors from "@/components/Admin/AdminDoctors/AddDoctors";
+import DoctorCards from "@/components/Admin/AdminDoctors/DoctorCards";
 import AdminTitle from "@/components/Admin/common/AdminTitle";
-import React from "react";
 
-const AdminDepartmentsPage = () => {
+const AdminDoctorsPage = () => {
   return (
     <div className="space-y-10">
       <div className="flex items-center justify-center">
-        <AdminTitle title="Departments" />
+        <AdminTitle title="Doctors" />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
         <div className="col-span-2">
-          <AddDepartment />
+          <AddDoctors />
         </div>
         <div className="col-span-3">
           <div className="h-[calc(100vh-5rem)] overflow-y-auto scrollbar-hide">
-            <DepartmentsCard />
+            <DoctorCards />
           </div>
         </div>
       </div>
@@ -23,4 +22,4 @@ const AdminDepartmentsPage = () => {
   );
 };
 
-export default AdminDepartmentsPage;
+export default AdminDoctorsPage;

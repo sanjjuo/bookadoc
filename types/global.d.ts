@@ -7,13 +7,6 @@ interface IdentificationDataType {
   label: string;
 }
 
-interface DoctorDataType {
-  id: number;
-  imageUrl: string;
-  name: string;
-  specialization: string;
-}
-
 interface IdentificationDropdownProps {
   value: string;
   label: string;
@@ -37,7 +30,7 @@ interface UserInformationFormType {
   createdAt?: string;
   phoneNumber: string;
   address: string;
-  gender: "Male" | "Female";
+  gender: "Male" | "Female" | "Others";
   occupation: string;
   allergies?: string;
   medications?: string;
@@ -70,5 +63,16 @@ interface DepartmentType {
   departmentName: string;
   departmentImage: string;
   departmentDescription: string;
-  departmentDoctor: string;
+}
+
+interface DoctorType {
+  image?: any;
+  doctor: string;
+  email: string;
+  age: string;
+  gender: "Male" | "Female" | "Others";
+  specialization: string;
+  experience: string;
+  higherEducation: string;
+  about: string;
 }

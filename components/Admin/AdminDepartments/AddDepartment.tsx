@@ -41,13 +41,6 @@ const AddDepartment = () => {
             />
             <CustomInput
               form={form}
-              name="departmentDoctor"
-              type="text"
-              label="Department Doctor"
-              placeholder="Enter department Doctor"
-            />
-            <CustomInput
-              form={form}
               name="departmentImage"
               type="text"
               label="Department Image"

@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import { Calendar, Home, Inbox, Settings, Stethoscope } from "lucide-react";
 export const sideBarItems = [
   {
     title: "Dashboard",
@@ -16,9 +16,9 @@ export const sideBarItems = [
     icon: Calendar,
   },
   {
-    title: "Search",
-    url: "/admin",
-    icon: Search,
+    title: "Doctors",
+    url: "/admin/admin-doctors",
+    icon: Stethoscope,
   },
   {
     title: "Settings",

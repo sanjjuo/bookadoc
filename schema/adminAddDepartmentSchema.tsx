@@ -7,8 +7,5 @@ export const useAdminAddDepartmentSchema = z.object({
   departmentDescription: z
     .string({ message: "Description of department is required" })
     .min(5, { message: "Please enter atleast five characters" }),
-  departmentDoctor: z
-    .string({ message: "Department doctor is required" })
-    .min(1, { message: "Please enter atleast one doctor name" }),
   departmentImage: z.string({ message: "Department image url is required" }),
 });
