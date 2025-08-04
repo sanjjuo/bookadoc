@@ -71,7 +71,7 @@ interface DoctorType {
   email: string;
   age: string;
   gender: "Male" | "Female" | "Others";
-  specialization: string;
+  specialization: DepartmentType;
   experience: string;
   higherEducation: string;
   about: string;

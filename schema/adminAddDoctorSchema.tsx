@@ -18,9 +18,14 @@ export const useAdminAddDoctorSchema = z.object({
     .refine((val) => !!val, {
       message: "Gender is required",
     }),
-  specialization: z
-    .string({ message: "Specialization is required" })
-    .min(1, { message: "Atleast one character is required" }),
+  specialization: z.object({
+    id: z.string().optional(),
+    departmentName: z
+      .string({ message: "Specialization is required" })
+      .min(1, { message: "Atleast one character is required" }),
+    departmentImage: z.string(),
+    departmentDescription: z.string(),
+  }),
   experience: z
     .string({ message: "Experience is required" })
     .min(1, { message: "Atleast one character is required" }),
@@ -29,5 +34,5 @@ export const useAdminAddDoctorSchema = z.object({
     .min(3, { message: "Atleast three characters required" }),
   about: z
     .string({ message: "About is required" })
-    .min(5, { message: "Atleast five characters required" }),
+    .min(20, { message: "Atleast 20 characters required" }),
 });

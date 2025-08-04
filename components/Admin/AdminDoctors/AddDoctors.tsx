@@ -35,7 +35,7 @@ import {
 } from "@/components/ui/select";
 
 const AddDoctors = () => {
-  const [previewImage, setPreviewImage] = React.useState<string | null>(null);
+  // const [previewImage, setPreviewImage] = React.useState<string | null>(null);
 
   const { mutate } = useAdminAddDoctors();
   const { data } = useFetchDepartments();
@@ -56,7 +56,12 @@ const AddDoctors = () => {
       experience: "",
       gender: undefined,
       higherEducation: "",
-      specialization: "",
+      specialization: {
+        id: "",
+        departmentName: "",
+        departmentImage: "",
+        departmentDescription: "",
+      },
       email: "",
     },
   });
@@ -66,7 +71,6 @@ const AddDoctors = () => {
       onSuccess: () => {
         toast.success("New Doctor is added");
         form.reset();
-        setPreviewImage(null);
       },
       onError: (error) => {
         toast.error(`"something went wrong", ${error}`);
@@ -156,9 +160,13 @@ const AddDoctors = () => {
                   <FormLabel className="input-label">Specialization</FormLabel>
                   <FormControl>
                     <Select
-                      {...field}
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
+                      // {...field}
+                      onValueChange={(value) => {
+                        const selectedDept = data?.find((d) => d.id === value);
+                        if (selectedDept) {
+                          form.setValue("specialization", selectedDept);
+                        }
+                      }}
                     >
                       <SelectTrigger className="w-full focus:!ring-0 shadow-none">
                         <SelectValue placeholder="Select Department" />
